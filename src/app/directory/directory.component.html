@@ -1,0 +1,83 @@
+<div class="actions">
+  <button class="btn green" (click)="addFolder()">Add Folder</button>
+  <button class="btn green" (click)="addFile()">Add File</button>
+  <button class="btn red" (click)="deleteSelected()">Delete Selected</button>
+  <button class="btn blue" (click)="renameSelected()">Rename Selected</button>
+</div>
+<div class="flex-container">
+  <div class="folder-div w-30-p">
+    <button style="display: none" type="button" id="refreshView" (click)="refreshView()"></button>
+    <div *ngFor="let folderJson of fileJSONarray">
+      <app-root-folder [folderJson]="folderJson"></app-root-folder>
+    </div>
+  </div>
+  <div class="folder-div w-70-p render-div">
+    <table class="" border="0">
+          <tr>
+            <th></th>
+            <th>File Name</th>
+            <th>Type </th>
+            <th>Owner </th>
+            <th>Created At</th>
+            <th>Updated At</th>
+          </tr>
+          <tr *ngFor="let row of selectedFolder">
+            <td class="icon {{row.folderName ? 'fr' : 'fi'}}">
+            </td>
+            <td>
+              {{row.folderName ? row.folderName : row.file_name}}
+            </td>
+            <td>
+              {{row.folderName ? 'Folder' : row.type}}
+            </td>
+            <td>
+              {{row.owner ? row.owner : 'Me'}}
+            </td>
+            <td>
+                {{row.created ? row.created : currentDate}}
+            </td>
+            <td>
+                {{row.updated ? row.updated : currentDate}}
+            </td>
+          </tr>
+          <tr *ngIf="createNewFolder">
+            <td class="icon fr">
+            </td>
+            <td>
+              <input type="text" placeholder="Enter Folder name" id="newFolder" (keyup)="updateFolder($event)">
+            </td>
+            <td>
+                Folder
+              </td>
+              <td>
+                Me
+              </td>
+              <td>
+                 {{currentDate}}
+              </td>
+              <td>
+                  {{currentDate}}
+              </td>
+          </tr>
+          <tr *ngIf="createNewFile">
+              <td class="icon fi">
+              </td>
+              <td>
+               <input type="text" placeholder="Enter File name" id="newFile" (keyup)="updateFile($event)">
+              </td>
+              <td>
+                  File
+                </td>
+                <td>
+                  Me
+                </td>
+                <td>
+                   {{currentDate}}
+                </td>
+                <td>
+                    {{currentDate}}
+                </td>
+          </tr>
+    </table>
+  </div>
+</div>

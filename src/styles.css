@@ -1,1 +1,153 @@
 /* You can add global styles to this file, and also import other style files */
+.flex-container {
+    display: flex;
+}
+.flex-container .folder-div{
+    min-height: 250px;
+    max-height: 400px;
+    overflow: auto;
+    border: 1px solid #ccc;
+    border-left: none;
+}
+.flex-container .folder-div:first-child{
+    border-left: 1px solid #ccc;
+}
+.folder.active, .file.active, .folder:hover {
+    background: #ececee;
+    cursor: pointer;
+}
+.folder.active, .file.active {
+    border: 1px solid #5bc0de;
+}
+.folder:active  {
+    background: #ccc;
+    cursor: pointer;
+}
+.sub-folder {
+    list-style: none;
+    padding: 0 0 0 20px;
+    margin: 0;
+}
+.sub-folder li>.folder {
+    /* padding: 0; */
+}
+.w-20-p {
+    width: 20%;
+}
+.w-30-p {
+    width: 30%;
+}
+.w-50-p {
+    width: 50%;
+}
+.w-70-p {
+    width: 70%;
+}
+.w-80-p {
+    width: 80%;
+}
+.w-100-p {
+    width: 100%;
+}
+.btn {
+    height: 25px;
+    padding: 2px 5px;
+    margin: 2px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn:hover {
+    color: #000;
+}
+.folder {
+    padding: 2px 2px 2px 20px;
+    border: 1px solid #fff;
+}
+.folder>.icon {
+    content: url('assets/images/folder.png');
+    cursor: pointer;
+    height: 16px;
+    margin: 0 5px;
+}
+td.icon.fr {
+    content: url('assets/images/folder.png');
+    height: 16px;
+    margin: 0;
+    border: none;
+}
+.empty-folder>.icon {
+    content: url('assets/images/empty-folder.png');
+    cursor: pointer;
+    height: 16px;
+    margin: 0 5px;
+}
+.file>.icon {
+    content: url('assets/images/file.png');
+    cursor: pointer;
+    height: 16px;
+    margin: 0 5px;
+}
+td.icon.fi {
+    content: url('assets/images/file.png');
+    height: 16px;
+    margin: 0;
+    border: none;
+}
+.exp-coll {
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
+}
+.parent {
+    content: url('assets/images/caret.svg');
+    height: 10px;
+    padding: 2px;
+    position: absolute;
+}
+.collapse.parent {
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Safari 3-8 */
+    transform: rotate(90deg);
+}
+.expand.parent {
+    -ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Safari 3-8 */
+    transform: rotate(180deg);
+}
+.folder-node.show .sub-folder {
+    display: block;
+}
+.folder-node.hide .sub-folder {
+    display: none;
+}
+
+.green {
+    color: #fff;
+    background-color: #4cae4c;
+    border-color: #4cae4c;
+}
+.red {
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+.blue {
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #5bc0de;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border-bottom: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    /* background-color: #dddddd; */
+}

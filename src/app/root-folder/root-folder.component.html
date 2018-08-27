@@ -1,0 +1,21 @@
+<div class="folder-node root-node hide" (click)="selectFolder($event, rootFolderContentArray)">
+  <div class="folder">
+    <span class="exp-coll">
+        <i class="{{rootFolderContentArray && rootFolderContentArray.length > 0 ? 'parent' : 'non-parent'}} collapse" (click)="toggleFolder($event)"></i>
+    </span>
+    <i class="icon"></i>
+    {{rootFolderName}}
+  </div>
+  <div class="">
+    <ul class="sub-folder">
+      <li class="" *ngFor="let fORf of rootFolderContentArray" >
+          <div class="" *ngIf="fORf.folderName">
+            <app-folder [folderObj]="fORf"></app-folder>
+          </div>
+          <div class="folder" *ngIf="fORf.file_name">
+            <app-file [fileObj]="fORf"></app-file>
+          </div>
+      </li>
+    </ul>
+  </div>
+</div>
